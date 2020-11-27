@@ -1,1 +1,45 @@
-<p>registro works!</p>
+<form [formGroup]="registerForm" (ngSubmit)="register()" class="login-box">
+    <h1>Registro</h1>
+
+    <div class="textbox">
+        <i class="fas fa-user"></i>
+        <input type="text" formControlName="fname" placeholder="Nombre">
+    </div>
+    <div *ngIf="registerForm.get('fname').errors && registerForm.get('fname').dirty">
+        <p>Debe completar el campo</p>
+    </div>
+
+    <div class="textbox">
+        <i class="fas fa-user"></i>
+        <input type="text" formControlName="lname" placeholder="Apellido">
+    </div>
+    <div *ngIf="registerForm.get('lname').errors && registerForm.get('lname').dirty">
+        <p>Debe completar el campo</p>
+    </div>
+
+    <div class="textbox">
+        <i class="fas fa-phone"></i>
+        <input type="phone" formControlName="phone" placeholder="Teléfono">
+    </div>
+
+    <div class="textbox">
+        <i class="fas fa-envelope"></i>
+        <input type="email" formControlName="email" placeholder="Email">
+    </div>
+    <div *ngIf="registerForm.get('email').errors && registerForm.get('email').dirty">
+        <p *ngIf="registerForm.get('email').hasError('required')">Debe completar el campo</p>
+        <p *ngIf="registerForm.get('email').hasError('email')">No es un correo válido</p>
+    </div>
+
+    <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input type="password" formControlName="password" placeholder="Contraseña">
+    </div>
+    <div *ngIf="registerForm.get('password').errors && registerForm.get('password').dirty">
+        <p *ngIf="registerForm.get('password').hasError('required')">Debe completar el campo</p>
+        <p *ngIf="registerForm.get('password').hasError('minlength')">La contraseña debe tener entre 6 y 10 caracteres</p>
+
+    </div>
+
+    <input type="submit" class="btn" value="Registrarse" [disabled]="registerForm.invalid">
+</form>
