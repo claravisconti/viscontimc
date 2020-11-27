@@ -1,15 +1,24 @@
-<!-- <div class="login-box">
-    <h1>Iniciar Sesión</h1>
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="login-box">
+    <h1>Login</h1>
 
-    <div class="textbox">
+    <div class="textbox" [ngClass]="{error:loginForm.get('email').errors && loginForm.get('email').dirty}">
         <i class="fas fa-envelope"></i>
-        <input type="email" id="email" name="email" placeholder="Email">
+        <input type="email" formControlName="email" placeholder="Email">
+    </div>
+    <div *ngIf="loginForm.get('email').errors && loginForm.get('email').dirty">
+        <p *ngIf="loginForm.get('email').hasError('required')">Debe completar el campo</p>
+        <p *ngIf="loginForm.get('email').hasError('email')">No es un correo válido</p>
     </div>
 
-    <div class="textbox">
+    <div class="textbox" [ngClass]="{error:loginForm.get('password').errors && loginForm.get('password').dirty}">
         <i class="fas fa-lock"></i>
-        <input type="password" id="password" name="password" placeholder="Contraseña">
+        <input type="password" formControlName="password" placeholder="Contraseña">
+    </div>
+    <div *ngIf="loginForm.get('password').errors && loginForm.get('password').dirty">
+        <p *ngIf="loginForm.get('password').hasError('required')">Debe completar el campo</p>
+        <p *ngIf="loginForm.get('password').hasError('minlength')">La contraseña debe tener 6 caracteres mínimo</p>
+        <p *ngIf="loginForm.get('password').hasError('maxlength')">La contraseña debe tener 10 máximo caracteres</p>
     </div>
 
-    <input type="button" class="btn" value="Registrarse">
-</div> -->
+    <input type="submit" class="btn" value="Registrarse" [disabled]="loginForm.invalid">
+</form>
