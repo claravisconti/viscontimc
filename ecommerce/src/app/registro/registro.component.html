@@ -1,7 +1,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="register()" class="login-box">
     <h1>Registro</h1>
 
-    <div class="textbox">
+    <div class="textbox" [ngClass]="{error:registerForm.get('fname').errors && registerForm.get('fname').dirty}">
         <i class="fas fa-user"></i>
         <input type="text" formControlName="fname" placeholder="Nombre">
     </div>
@@ -9,7 +9,7 @@
         <p>Debe completar el campo</p>
     </div>
 
-    <div class="textbox">
+    <div class="textbox" [ngClass]="{error:registerForm.get('lname').errors && registerForm.get('lname').dirty}">
         <i class="fas fa-user"></i>
         <input type="text" formControlName="lname" placeholder="Apellido">
     </div>
@@ -22,7 +22,7 @@
         <input type="phone" formControlName="phone" placeholder="Teléfono">
     </div>
 
-    <div class="textbox">
+    <div class="textbox" [ngClass]="{error:registerForm.get('email').errors && registerForm.get('email').dirty}">
         <i class="fas fa-envelope"></i>
         <input type="email" formControlName="email" placeholder="Email">
     </div>
@@ -31,7 +31,7 @@
         <p *ngIf="registerForm.get('email').hasError('email')">No es un correo válido</p>
     </div>
 
-    <div class="textbox">
+    <div class="textbox" [ngClass]="{error:registerForm.get('password').errors && registerForm.get('password').dirty}">
         <i class="fas fa-lock"></i>
         <input type="password" formControlName="password" placeholder="Contraseña">
     </div>
