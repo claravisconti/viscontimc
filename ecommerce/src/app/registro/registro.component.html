@@ -37,8 +37,8 @@
     </div>
     <div *ngIf="registerForm.get('password').errors && registerForm.get('password').dirty">
         <p *ngIf="registerForm.get('password').hasError('required')">Debe completar el campo</p>
-        <p *ngIf="registerForm.get('password').hasError('minlength')">La contraseña debe tener entre 6 y 10 caracteres</p>
-
+        <p *ngIf="registerForm.get('password').hasError('minlength')">La contraseña debe tener 6 caracteres mínimo</p>
+        <p *ngIf="registerForm.get('password').hasError('maxlength')">La contraseña debe tener 10 máximo caracteres</p>
     </div>
 
     <input type="submit" class="btn" value="Registrarse" [disabled]="registerForm.invalid">

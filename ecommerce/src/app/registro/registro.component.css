@@ -46,6 +46,8 @@
     margin: 12px 0;
   }
 
+  /* Error: if */
+
   .error{
      border-bottom: 1px solid red;
   }
