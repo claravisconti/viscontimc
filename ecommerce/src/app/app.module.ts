@@ -1,12 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//Imports 
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 
+//Componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { DetalleComponent } from './detalle/detalle.component';
     DetalleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
