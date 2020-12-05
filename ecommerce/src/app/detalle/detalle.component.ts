@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductosService } from '../services/productos.service';
 
 @Component({
   selector: 'app-detalle',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleComponent implements OnInit {
 
-  constructor() { }
+  producto_async;
+
+  constructor(private prdServ: ProductosService) {
+ 
+      this.producto_async = this.prdServ.get();
+  }
 
   ngOnInit(): void {
   }

@@ -7,8 +7,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductosService {
 
-  constructor(private http:HttpClient) { }
-  getAll(){
+  constructor(private http: HttpClient) { }
+  getAll() {
     return this.http.get("https://jsonfy.com/items") //retorna promesa
   }
+  get() {
+    return this.http.get("https://jsonfy.com/items/1")
+  }
+
 }
