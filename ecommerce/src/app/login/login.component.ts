@@ -7,10 +7,11 @@ import { UsuariosService } from '../services/usuarios.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+//1 
+
 export class LoginComponent implements OnInit {
 
-  //Users
-  usuarios: any = []
 
   //Variable de tipo FormGroup
   loginForm: FormGroup;
@@ -21,14 +22,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
     })
-
-    //Necesito VALIDAR que el usuario y la contrasena esten correctas a la BD
-
-    // this.userServ.getAll()
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     this.usuarios = data;
-    //   
   }
 
   //Metoodo: mostrar en consola los valores
@@ -40,3 +33,5 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
+
