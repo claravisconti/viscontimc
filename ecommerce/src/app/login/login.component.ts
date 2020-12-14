@@ -12,6 +12,7 @@ import { UsuariosService } from '../services/usuarios.service';
 
 export class LoginComponent implements OnInit {
 
+  usuarios_async;
 
   //Variable de tipo FormGroup
   loginForm: FormGroup;
@@ -21,8 +22,10 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
-    })
+    }),
+    this.usuarios_async = this.userServ.getAll();
   }
+
 
   //Metoodo: mostrar en consola los valores
   login() {
